@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Picker } from 'emoji-mart';
 import cn from 'classnames';
 
@@ -34,6 +34,10 @@ type Props = {
   showTimeStamp: boolean;
   resizable?: boolean;
   emojis?: boolean;
+
+  frontPage?: React.ReactNode;
+
+    header?: React.ReactNode;
 };
 
 function Conversation({
@@ -54,7 +58,7 @@ function Conversation({
   sendButtonAlt,
   showTimeStamp,
   resizable,
-  emojis
+  emojis,frontPage,header
 }: Props) {
   const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();
   let startX, startWidth;
@@ -118,6 +122,7 @@ function Conversation({
         profileAvatar={profileAvatar}
         profileClientAvatar={profileClientAvatar}
         showTimeStamp={showTimeStamp}
+        frontPage={frontPage}
       />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
       {emojis && pickerStatus && (<Picker 

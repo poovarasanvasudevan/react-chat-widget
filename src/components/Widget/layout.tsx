@@ -67,7 +67,7 @@ function WidgetLayout({
   zoomStep,
   showBadge,
   resizable,
-  emojis
+  emojis,frontPage,header
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -147,6 +147,8 @@ function WidgetLayout({
           showTimeStamp={showTimeStamp}
           resizable={resizable}
           emojis={emojis}
+            frontPage={frontPage}
+            header={header}
         />
       }
       {customLauncher ?

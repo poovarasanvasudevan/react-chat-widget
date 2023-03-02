@@ -5,6 +5,7 @@ import { isWidgetOpened } from '../../store/dispatcher';
 import { AnyFunction } from '../../utils/types';
 
 import WidgetLayout from './layout';
+import React from "react";
 
 type Props = {
   title: string;
@@ -34,6 +35,9 @@ type Props = {
   showBadge?: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  header?: React.ReactNode;
+
+  frontPage?: React.ReactNode;
 }
 
 function Widget({
@@ -63,7 +67,7 @@ function Widget({
   handleSubmit,
   showBadge,
   resizable,
-  emojis
+  emojis, header,frontPage
 }: Props) {
   const dispatch = useDispatch();
 
@@ -115,6 +119,8 @@ function Widget({
       showBadge={showBadge}
       resizable={resizable}
       emojis={emojis}
+      frontPage={frontPage}
+      header={header}
     />
   );
 }
